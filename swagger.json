@@ -1,0 +1,181 @@
+{
+    "swagger": "2.0",
+    "basePath": "/",
+    "paths": {
+        "/directors/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "operationId": "get_directors_view",
+                "tags": [
+                    "directors"
+                ]
+            }
+        },
+        "/directors/{did}": {
+            "parameters": [
+                {
+                    "name": "did",
+                    "in": "path",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "operationId": "get_directors_view",
+                "tags": [
+                    "directors"
+                ]
+            }
+        },
+        "/genres/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "operationId": "get_genres_view",
+                "tags": [
+                    "genres"
+                ]
+            }
+        },
+        "/genres/{gid}": {
+            "parameters": [
+                {
+                    "name": "gid",
+                    "in": "path",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "operationId": "get_genres_view",
+                "tags": [
+                    "genres"
+                ]
+            }
+        },
+        "/movies/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "operationId": "get_movies_view",
+                "tags": [
+                    "movies"
+                ]
+            },
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "operationId": "post_movies_view",
+                "tags": [
+                    "movies"
+                ]
+            }
+        },
+        "/movies/{mid}": {
+            "parameters": [
+                {
+                    "name": "mid",
+                    "in": "path",
+                    "required": true,
+                    "type": "integer"
+                }
+            ],
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "operationId": "patch_movies_view",
+                "tags": [
+                    "movies"
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "operationId": "delete_movies_view",
+                "tags": [
+                    "movies"
+                ]
+            },
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "operationId": "get_movies_view",
+                "tags": [
+                    "movies"
+                ]
+            },
+            "put": {
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "operationId": "put_movies_view",
+                "tags": [
+                    "movies"
+                ]
+            }
+        }
+    },
+    "info": {
+        "title": "API",
+        "version": "1.0"
+    },
+    "produces": [
+        "application/json"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "tags": [
+        {
+            "name": "movies"
+        },
+        {
+            "name": "directors"
+        },
+        {
+            "name": "genres"
+        }
+    ],
+    "responses": {
+        "ParseError": {
+            "description": "When a mask can't be parsed"
+        },
+        "MaskError": {
+            "description": "When any error occurs on mask"
+        }
+    }
+}
