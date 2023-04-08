@@ -2,12 +2,14 @@ from flask import request
 from flask_restx import Resource, Namespace
 from container import movies_service
 from dao.model.movies import MoviesSchema
+from helpers import auth_required, admin_required
 
 movies_ns = Namespace('movies')
 
 
 @movies_ns.route("/")
 class MoviesView(Resource):
+    @auth_required
     def get(self):
         year = request.args.get("year")
         director_id = request.args.get("director_id")
@@ -26,6 +28,7 @@ class MoviesView(Resource):
 
         return result, 200
 
+    @admin_required
     def post(self):
         data = request.get_json()
         movies_service.create(data)
@@ -34,21 +37,25 @@ class MoviesView(Resource):
 
 @movies_ns.route("/<int:mid>")
 class MoviesView(Resource):
+    @auth_required
     def get(self, mid):
         movie = movies_service.get_one(mid)
         result = MoviesSchema().dump(movie)
         return result, 200
 
+    @admin_required
     def put(self, mid):
         data = request.get_json()
         movies_service.update(data, mid)
         return "", 204
 
+    @admin_required
     def patch(self, mid):
         data = request.get_json()
         movies_service.update_partially(data, mid)
         return "", 204
 
+    @admin_required
     def delete(self, mid):
         movies_service.delete(mid)
         return "", 204
