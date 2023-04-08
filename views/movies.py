@@ -31,8 +31,10 @@ class MoviesView(Resource):
     @admin_required
     def post(self):
         data = request.get_json()
-        movies_service.create(data)
-        return "", 201
+        movie = movies_service.create(data)
+        result = MoviesSchema().dump(movie)
+
+        return result, 201
 
 
 @movies_ns.route("/<int:mid>")

@@ -29,7 +29,7 @@ class MoviesService:
         movie.year = data["year"]
         movie.rating = data["rating"]
 
-        self.movies_dao.update(movie)
+        return self.movies_dao.update(movie)
 
     def update_partially(self, data, mid):
         movie = self.movies_dao.get_one(mid)
@@ -45,8 +45,7 @@ class MoviesService:
         if "rating" in data:
             movie.rating = data["rating"]
 
-        self.movies_dao.update(movie)
+        return self.movies_dao.update(movie)
 
     def delete(self, mid):
-        movie = self.movies_dao.get_one(mid)
-        return self.movies_dao.delete(movie)
+        self.movies_dao.delete(mid)

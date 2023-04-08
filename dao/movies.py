@@ -29,14 +29,13 @@ class MoviesDAO:
         movie = Movies(**data)
         self.session.add(movie)
         self.session.commit()
-        self.session.close()
+        return movie
 
     def update(self, data):
         self.session.add(data)
         self.session.commit()
-        self.session.close()
 
-    def delete(self, movie):
+    def delete(self, mid):
+        movie = self.get_one(mid)
         self.session.delete(movie)
         self.session.commit()
-        self.session.close()
